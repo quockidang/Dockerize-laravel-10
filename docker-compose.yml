@@ -63,6 +63,14 @@ services:
                 - ping
             retries: 3
             timeout: 5s
+    rabbitmq:
+        image: rabbitmq:management
+        environment:
+            - RABBITMQ_DEFAULT_USER=guest
+            - RABBITMQ_DEFAULT_PASS=guest
+        ports:
+            - "5672:5672"
+            - "15672:15672"
 networks:
     sail:
         driver: bridge
